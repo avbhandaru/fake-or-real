@@ -1,17 +1,16 @@
-const PORT = process.env.PORT || 8000;
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const port = process.env.PORT || 3000;
 
 const app = express();
-app.use(bodyParser);
 
-// GET tweets
-app.get('/api/tweets', (req, res) => {
-  let tweets = ['a', 'b', 'c', 'd', 'e'];
-  res.status(200).send(tweets);
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 });
 
-// LISTEN
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+app.get('/api/tweets', (req, res) => {
+  res.send(JSON.stringify([1, 2, 3, 4, 5]))
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 });
