@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 
-const uri = "mongodb+srv://akhil:r0Lx2SwPS02VF6IN@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority";
+const uri = "NONE, until further notice";
 mongoose.connect(uri, {useNewUrlParser: true})
   .then(async () => {
     console.log('MongoDB database connected...');
