@@ -4,7 +4,7 @@ const homeRouter = require('./routes/home');
 const tweetsRouter = require('./routes/tweets');
 const port = process.env.PORT || 3000;
 
-const uri = "NONE, until further notice";
+const uri = "mongodb+srv://akhil:r0Lx2SwPS02VF6IN@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority";
 mongoose.connect(uri, {useNewUrlParser: true})
   .then(async () => {
     console.log('MongoDB database connected...');
