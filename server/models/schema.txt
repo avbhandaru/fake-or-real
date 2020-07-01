@@ -1,0 +1,18 @@
+// Tweet Schema
+{
+	tweet: 'akhil is the coolest dude I have ever met... probably',
+	answer: 'fake',
+	metadata: {
+		author: 'Donald J. Trump',
+		handle: 'realDonaldTrump',
+		date: ...,
+		is_retweet: false,
+		num_comments: 0,
+		num_retweets: 0,
+		num_favorites: 0		
+	},
+	analytics: {
+		correct_guesses: 0,
+		incorrect_guesses: 0
+	}
+}

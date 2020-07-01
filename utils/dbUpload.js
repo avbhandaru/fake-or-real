@@ -7,7 +7,8 @@ function save_callback(err, doc) {
   if (err) {
     console.log(err);
   } else {
-    console.log('Successfully saved', doc);
+    // console.log('Successfully saved', doc);
+    return;
   }
 }
 
@@ -31,20 +32,21 @@ mongoose.connect(uri, {useNewUrlParser: true})
         let name = row.name || 'Donald J. Trump';
         let handle = row.handle || 'realDonaldTrump';
         let tweet = {
-          name: name,
-          handle: handle,
-          content: row.text,
-          is_retweet: row.is_retweet || false,
-          retweets: row.retweet_count || 0,
-          hearts: row.favorite_count || 0,
-          created_at: (row.created_at? new Date(row.created_at) : Date.now())
+          tweet: row.text,
+          metadata: {
+            date: (row.created_at? new Date(row.created_at) : Date.now()),
+            is_retweet: row.is_retweet || false,
+            num_comments: row.comments_count || 0,
+            num_retweets: row.retweet_count || 0,
+            num_favorites: row.favorite_count || 0,
+          }
         }
         if (tweet_type === 'real') {
-          tweet.is_real = true;
+          tweet.answer ='real';
           const realTweet = new RealTweet(tweet);
           await realTweet.save(save_callback);
         } else {
-          tweet.is_real = false;
+          tweet.answer = 'fake';
           const fakeTweet = new FakeTweet(tweet);
           await fakeTweet.save(save_callback);
         }

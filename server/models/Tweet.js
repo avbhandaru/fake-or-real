@@ -1,61 +1,41 @@
 const mongoose = require('mongoose');
 
+// Consider sub-documents vs nested layer if we add a Tweets collection
 const schema = mongoose.Schema({
-  name: {
+  tweet: {
     type: String,
     required: true,
     minlength: 1,
-    maxlength: 32
+    maxlength: 280
   },
-  handle: {
+  answer: {
     type: String,
     required: true,
-    minlength: 1,
-    maxlength: 32
+    enum: ['real', 'fake'],
   },
-  content: {
-    type: String,
-    required: true,
-    minlength: 1,
-    maxlength: 280,
+  metadata: {
+    // if no author/handle -> default Donald J. Trump and @realDonaldTrump
+    author: {
+      type: String,
+      minlength: 1,
+      maxlength: 32,
+      required: true,
+      default: 'Donald J. Trump' },
+    handle: {
+      type: String,
+      minlength: 1,
+      maxlength: 32,
+      required: true,
+      default: 'realDonaldTrump' },
+    date: { type: Date, required: true, default: Date.now() },
+    is_retweet: { type: Boolean , default: false },
+    num_comments: { type: Number, min: 0, default: 0 },
+    num_retweets: { type: Number, min: 0, default: 0 },
+    num_favorites: { type: Number, min: 0, default: 0 }
   },
-  comments: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
-  is_retweet: Boolean,
-  retweets: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
-  hearts: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
-  created_at: {
-    type: Date,
-    required: true,
-    default: Date.now()
-  },
-  is_real: {
-    type: Boolean,
-    required: true,
-  },
-  // for analytics later
-  guesses: {
-    correct_guesses: {
-      type: Number,
-      min: 0,
-      default: 0
-    },
-    incorrect_guesses: {
-      type: Number,
-      min: 0,
-      default: 0
-    }
+  analytics: {
+    correct_guesses: { type: Number, min: 0, default: 0 },
+    incorrect_guesses: { type: Number, min: 0, default: 0 }
   }
 });
 
