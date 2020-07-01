@@ -1,4 +1,5 @@
 const { RealTweet, FakeTweet, Tweet } = require('../server/models/Tweet');
+const enums = require('./enums');
 const mongoose = require('mongoose');
 const csv = require('csv-parser');
 const fs = require('fs');
@@ -12,8 +13,10 @@ function save_callback(err, doc) {
   }
 }
 
-const uri = "mongodb+srv://akhil:r0Lx2SwPS02VF6IN@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority";
-mongoose.connect(uri, {useNewUrlParser: true})
+mongoose.connect(
+  enums.MONGO_URI(process.env.MONGODB_UN, process.env.MONGODB_PW),
+  {useNewUrlParser: true}
+)
   .then(async () => {
     console.log('MongoDB database connected. Attempting to upload CSV...');
 

@@ -1,19 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const enums = require('../../utils/enums');
 const getRandomInt = require('../../utils/randomInt');
 const shuffle = require('../../utils/shuffle');
 const { RealTweet, FakeTweet, Tweet } = require('../models/Tweet');
 
 const NUM_TWEETS = 50;
-const ERROR = `ERROR [${__dirname}]:`;
+const ERROR = enums.ERROR(__dirname);
 
 let realTweetCount;
 let fakeTweetCount;
 
-console.log('TESTING', process.env.MONGODB_PW);
-
-const uri = `mongodb+srv://akhil:${process.env.MONGODB_PW}@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority`;
-mongoose.connect(uri, {useNewUrlParser: true})
+mongoose.connect(
+  enums.MONGO_URI(process.env.MONGODB_UN, process.env.MONGODB_PW),
+  {useNewUrlParser: true}
+)
   .then(async () => {
     try {
       realTweetCount = await RealTweet.countDocuments();

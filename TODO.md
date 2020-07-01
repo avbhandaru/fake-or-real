@@ -11,3 +11,5 @@
  - front end bloom filter for overflow new games that require new set of tweets. For now, do simple member checks
 
  - consider adding skips in queries for increased "randomness" later when we request tweets
+ - add request status when sending 404/200, etc
+ - hide endpoints from client
