@@ -12,7 +12,7 @@ let fakeTweetCount;
 
 console.log('TESTING', process.env.MONGODB_PW);
 
-const uri = "mongodb+srv://akhil:r0Lx2SwPS02VF6IN@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority";
+const uri = `mongodb+srv://akhil:${process.env.MONGODB_PW}@real-or-fake.aqihu.mongodb.net/fake-or-real?retryWrites=true&w=majority`;
 mongoose.connect(uri, {useNewUrlParser: true})
   .then(async () => {
     try {
