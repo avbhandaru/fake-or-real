@@ -1,0 +1,387 @@
+body, html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+	padding: 25px;
+    box-sizing: border-box;
+    background: #fcfefc;
+}
+
+h1, h2, h3, p {
+    margin:0;
+}
+
+a {
+    text-decoration:none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1em;
+}
+
+span.green {
+	color: #19CF86;
+	font-weight: bold;
+}
+
+span.red {
+	color: #E81C4F;
+	font-weight: bold;
+}
+
+#nav {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 25px;
+	font-size: 1em;
+	font-family: 'Roboto', sans-serif;
+	color: #444444;
+}
+
+#nav a {
+	color: #444444;
+}
+
+.button {
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	transition: 0.5s;
+}
+
+.button:hover {
+	opacity: 0.75;
+}
+
+#splash, #quiz {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 3em;
+	text-align: center;
+	color: #1DA1F2;
+}
+
+#splash p {
+	margin: 25px 0 50px;
+	max-width: 800px;
+	line-height: 1.5em;
+	color: #444444;
+}
+
+#splash .button {
+	background: #1DA1F2;
+	color: white;
+	padding: 15px 50px;
+	border-radius: 5px;
+}
+
+#shooting-alley {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 100px;
+    background-image: url(images/shoot.gif);
+    background-size: 110px;
+}
+
+#progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    color: #444444;
+}
+
+.tweet {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    width: 600px;
+    max-width: 100%;
+    padding: 1.25rem 1.25rem .725rem 1.25rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.tweet-top {
+	display: flex;
+	align-items: center;
+}
+
+.tweet-top .tweet-photo {
+	height: 50px;
+	border-radius: 100px;
+	margin-right: 10px;	
+}
+
+.tweet-top .tweet-name {
+	flex-grow: 1;
+}
+
+.tweet-top p {
+	font-weight: bold;
+}
+
+.tweet-top p i {
+	color: #1DA1F2;
+}
+
+.tweet-top p span {
+	font-size: 0.9em;
+	font-weight: normal;
+	color: #697882;
+}
+
+.tweet-top .tweet-follow {
+	border: 1px solid #1DA1F2;
+	border-radius: 5px;
+	padding: 7.5px 12.5px;
+	color: #1DA1F2;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.tweet-top .tweet-follow:hover {
+	background: #1DA1F2;
+	color: white;
+}
+
+.tweet-content {
+	margin: 20px 0;
+}
+
+.tweet-bottom {
+	display: flex;
+}
+
+.tweet-action {
+	color: #697882;
+	margin-right: 25px;
+	cursor: pointer;
+}
+
+.tweet-reply:hover {
+	color: #1DA1F2;
+}
+
+.tweet-retweet:hover {
+	color: #19CF86;
+}
+
+.tweet-heart:hover {
+	color: #E81C4F;
+}
+
+#quiz #responses {
+	display: flex;
+	margin-top: 25px;
+	width: 600px;
+	max-width: 100%
+}
+
+#quiz #responses .button {
+	width: 50%;
+    border-radius: 5px;
+	text-align: center;
+    color: white;
+    padding: 15px 25px;
+}
+
+#quiz #responses #vote-real {
+	background: #19CF86;
+    margin-right: 25px;
+}
+
+#quiz #responses #vote-fake {
+	background: #E81C4F;
+}
+
+.modal-wrapper {
+    display: none;
+}
+
+.lightbox {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 25px;
+}
+
+.modal {
+    background: white;
+    padding: 25px;
+    border-radius: 5px;
+    width: 600px;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal .result {
+	margin-bottom: 25px;
+}
+
+.modal img {
+	max-height: 300px;
+	max-width: 100%;
+}
+
+#next {
+	text-align: center;
+    padding: 15px;
+    background: #1DA1F2;
+    color: white;
+    box-sizing: border-box;
+    width: 100%; 
+    margin-top: 25px;
+    border-radius: 5px;
+}
+
+.modal p.result {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.modal p.explanation {
+	margin: 25px 0;
+}
+
+#endgame {
+	display: none;
+	color: #444;
+	margin-top: 50px;
+}
+
+#endgame>p {
+	text-align: center;
+}
+
+#endgame #score-desc {
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+
+#endgame #score {
+	font-size: 5em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#endgame .button {
+    padding: 15px 25px;
+    background: #1DA1F2;
+    color: white;
+    text-align: center;
+    width: 250px;
+	border-radius: 5px;
+	margin: 25px auto 0;
+}
+
+#answers {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+}
+
+#answers .solution {
+	max-width: 100%;
+    margin-bottom: 25px;
+}
+
+#answers .solution .tweet {
+	margin-top: 15px;
+}
+
+#answers .tweet-action, #answers .tweet-follow {
+	cursor: default;
+}
+
+#answers .tweet-follow:hover {
+	background: none;
+	color: #1DA1F2;
+}
+
+#answers .tweet-reply:hover {
+	color: #697882;
+}
+
+#answers .tweet-retweet:hover {
+	color: #697882;
+}
+
+#answers .tweet-heart:hover {
+	color: #697882;
+}
+
+@media (max-width: 768px) {
+	body {
+		margin-top: 50px;
+		height: auto;
+	}
+
+	h1 {
+		font-size: 2.5em;
+	}
+
+	#shooting-alley {
+		position: relative;
+		margin-top: 50px;
+	}
+
+	.tweet-follow {
+		display: none;
+	}
+
+	#endgame {
+		margin-top: 0;
+	}
+}

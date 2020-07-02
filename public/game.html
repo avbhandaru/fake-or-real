@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Tweets By Trump: The Game</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="nav">
+		<a href="index.html">home</a> &bull; <a href="#">about</a> &bull; <a href="https://github.com/avbhandaru/fake-or-real" target="_blank">github</a>
+	</div>
+	<div id="progress">Q<span id="question-number">1</span>/<span id="question-total">10</span></div>
+	<div id="quiz">
+		<div class="tweet">
+			<div class="tweet-top">
+				<img src="images/trump.jpg" class="tweet-photo">
+				<div class="tweet-name">
+					<p>Donald J. Trump <i class="fa fa-check-circle"></i><br><span>@realDonaldTrump</span></p>
+				</div>
+				<div class="tweet-follow"><i class="fa fa-twitter"></i> Follow</div>
+			</div>
+			<div class="tweet-content"></div>
+			<div class="tweet-bottom">
+				<div class="tweet-action tweet-reply">
+					<i class="fa fa-reply"></i>
+				</div>
+				<div class="tweet-action tweet-retweet">
+					<i class="fa fa-retweet"></i> <span>30</span>K
+				</div>
+				<div class="tweet-action tweet-heart">
+					<i class="fa fa-heart"></i> <span>30</span>K
+				</div>
+			</div>
+		</div>
+		<div id="responses">
+			<div class="button" id="vote-real">REAL</div>
+			<div class="button" id="vote-fake">FAKE</div>
+		</div>
+	</div>
+	<div id="endgame">
+		<p>You got:</p>
+		<div id="score"><span id="num-correct"></span>/<span id="num-total"></span></div>
+		<p id="score-desc"></p>
+		<a href="game.html"><div class="button" id="replay">Play Again</div></a>
+		<a href="https://www.vote.org/register-to-vote/" target="_blank"><div class="button" id="register">Register to Vote!</div></a>
+		<div id="answers">
+			
+		</div>
+	</div>
+	<div class="modal-wrapper">
+		<div class="lightbox">
+			<div class="modal">
+				<p class="result"></p>
+				<img src="">
+				<div class="button" id="next">Next</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
