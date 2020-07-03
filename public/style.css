@@ -140,7 +140,8 @@ h1 {
 }
 
 #loading p {
-	font-size: 1.5em;
+	padding: 0 25px;
+	text-align: center;
 }
 
 #progress {
