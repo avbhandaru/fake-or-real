@@ -12,4 +12,4 @@
 
  - consider adding skips in queries for increased "randomness" later when we request tweets
  - add request status when sending 404/200, etc
- - hide endpoints from client
+ - hide endpoints from client/public private API
