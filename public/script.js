@@ -61,6 +61,14 @@ const rightAnswers = [
 	{
 		"msg": "Winning.",
 		"img": "images/winning.jpg",
+	},
+	{
+		"msg": "You have a very, very large brain.",
+		"img": "images/brain.jpg",
+	},
+	{
+		"msg": "Making America great again.",
+		"img": "images/ass.jpg",
 	}
 ];
 
@@ -71,10 +79,20 @@ const wrongAnswers = [
 		"img": "images/wrong.jpg",
 	},
 	{
+		"msg": "So weak.",
+		"img": "images/weak.jpg",
+	},
+	{
 		"msg": "You're fake news.",
 		"img": "images/fakenews.jpg",
+	},
+	{
+		"msg": "Loser.",
+		"img": "images/loser.jpg",
 	}
 ];
+
+// const finalOutcomes = ["You have small hands.", ""];
 
 function setupQuiz(data) {
 	// populates question counter in top-left corner of page.
