@@ -1,48 +1,38 @@
 $(document).ready(function() {
-	// TODO: get tweets
-	let data = [
-		{
-			"tweet": "content 1",
-			"answer": "real"
-		},
-		{
-			"tweet": "content 2",
-			"answer": "real"
-		},
-		{
-			"tweet": "content 3",
-			"answer": "fake"
-		}
-	];
+	// the https://cors-anywhere.herokuapp.com/ avoids CORS errors
+	$.getJSON("https://cors-anywhere.herokuapp.com/https://fake-or-real.herokuapp.com/api/tweets", function(data) {
+		console.log(data);
 
-	setupQuiz(data);
+		$('#loading').hide();
+		setupQuiz(data);
 
-	// define behavior for when user makes a guess + goes to next question
-	$('#vote-real').click(function() {
-		checkAnswer(data, true);
-		userResponses.push("real");
-	});
-	$('#vote-fake').click(function() {
-		checkAnswer(data, false);
-		userResponses.push("fake");
-	});
-	$('#next').click(function() {
-		nextQuestion(data);
-	});
+		// define behavior for when user makes a guess + goes to next question
+		$('#vote-real').click(function() {
+			checkAnswer(data, true);
+			userResponses.push("real");
+		});
+		$('#vote-fake').click(function() {
+			checkAnswer(data, false);
+			userResponses.push("fake");
+		});
+		$('#next').click(function() {
+			nextQuestion(data);
+		});
 
-	// fun dialogs that occur when users press the fake buttons on the Tweets
-	$('.tweet-follow').click(function() {
-		thisButtonDoesntWork();
-	});
-	$('.tweet-reply').click(function() {
-		thisButtonDoesntWork();
-	});
-	$('.tweet-retweet').click(function() {
-		thisButtonDoesntWork();
-	});
-	$('.tweet-heart').click(function() {
-		thisButtonDoesntWork();
-	});
+		// fun dialogs that occur when users press the fake buttons on the Tweets
+		$('.tweet-follow').click(function() {
+			thisButtonDoesntWork();
+		});
+		$('.tweet-reply').click(function() {
+			thisButtonDoesntWork();
+		});
+		$('.tweet-retweet').click(function() {
+			thisButtonDoesntWork();
+		});
+		$('.tweet-heart').click(function() {
+			thisButtonDoesntWork();
+		});
+    });
 });
 
 let current = 1; // current question number
