@@ -1,4 +1,7 @@
+import './style.css'
+
 $(document).ready(function() {
+	console.log('HELLO WORLD');
 	// the https://cors-anywhere.herokuapp.com/ avoids CORS errors
 	$.getJSON("https://cors-anywhere.herokuapp.com/https://fake-or-real.herokuapp.com/api/tweets/10", function(data) {
 		console.log(data);

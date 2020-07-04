@@ -18,7 +18,7 @@ mongoose.connect(
 
     // middleware use TODO: auth, JSON, web Tokens
     app.use(bodyParser.json());
-    app.use(express.static('public'));
+    // app.use(express.static('public'));
 
     // routers for api endpoints
     app.use('/', homeRouter);

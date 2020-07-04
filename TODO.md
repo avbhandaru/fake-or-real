@@ -13,3 +13,6 @@
  - consider adding skips in queries for increased "randomness" later when we request tweets
  - add request status when sending 404/200, etc
  - hide endpoints from client/public private API
+
+ - setup s3 hosting of site
+ - script to upload changed prod front end to s3
