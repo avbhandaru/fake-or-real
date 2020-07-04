@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const enums = require('../utils/enums');
 const homeRouter = require('./routes/home');
 const tweetsRouter = require('./routes/tweets');
@@ -16,7 +17,8 @@ mongoose.connect(
     const app = express();
 
     // middleware use TODO: auth, JSON, web Tokens
-    app.use(express.static('public'));
+    app.use(bodyParser.json());
+    // app.use(express.static('public'));
 
     // routers for api endpoints
     app.use('/', homeRouter);
