@@ -1,4 +1,4 @@
-import './style.css'
+// import './style.css'
 
 $(document).ready(function() {
 	console.log('HELLO WORLD');
