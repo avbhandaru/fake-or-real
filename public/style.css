@@ -212,6 +212,7 @@ h1 {
 .tweet-content {
 	margin: 20px 0;
     line-height: 1.5em;
+    word-break: break-word;
 }
 
 .tweet-bottom {
@@ -411,5 +412,9 @@ h1 {
 
 	#endgame {
 		margin-top: 0;
+	}
+
+	#endgame .button {
+		width: 200px;
 	}
 }
