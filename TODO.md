@@ -3,6 +3,7 @@
 ## Priority Queue
 <!-- 0. FIX s3 rendering issue -->
 1. Generate Fake Tweets and upload to Database (temp: use existing generators)
+2. CRON Task for Pulling tweets from Twitter API, upload to DB (ask for nice and helpful fields!)
 <!-- 2. Update database real Trump tweets to only have tweets post election 2016 -->
 3. Get random tweets/new tweets when a new game is started after exhausting previous query result
 4. API response status
