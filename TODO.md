@@ -1,14 +1,18 @@
 # TODO List
 
 ## Priority Queue
+<!-- 0. FIX s3 rendering issue -->
 1. Generate Fake Tweets and upload to Database (temp: use existing generators)
-2. Update database real Trump tweets to only have tweets post election 2016
+<!-- 2. Update database real Trump tweets to only have tweets post election 2016 -->
 3. Get random tweets/new tweets when a new game is started after exhausting previous query result
 4. API response status
-5. Webpack + AWS S3 supload script
+<!-- 5. Webpack + AWS S3 upload script -->
+5. Github Production hook -> upload diffed files to s3
 6. Add Keyboard Shortcuts
-7. Code cleanup
+7. Code cleanup ~in progress always~
 8. Message bank for correct/incorrect answers
+9. Fix package.json, so that babel and loaders are moved to devDependencies
+10. Look into hooking up CloudFront
 
 ## All TODO
  - Validate CRUD requests
@@ -20,3 +24,4 @@
  - [FAIL] hide endpoints from client/public private API
  - [DONE] setup s3 hosting of site
  - [ABOVE](5) script to upload changed prod front end to s3
+ - [SOLUTION](0) bypass browser cache "cmd + shift + r"/style sheet link directly to aws stylesheet
