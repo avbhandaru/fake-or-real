@@ -20,10 +20,12 @@ const outputFile = argv.o;
 // filters
 function checkReply(tweet) {
   // check if contains quote and if contains @handle
-  const atRegex = new RegExp(/@[a-zA-Z\d]*\s/g);
   const quoteRegex = new RegExp(/\".*\"/g);
+  const atRegex = new RegExp(/@[a-zA-Z\d]*\s/g);
   // allows for quotes in trump tweets, although consider changing this
-  if (tweet.tweet.match(atRegex) && tweet.tweet.match(quoteRegex)) {
+  if (tweet.tweet.match(quoteRegex) && tweet.tweet.match(atRegex)) {
+    return true;
+  } else if (tweet.tweet.match(atRegex)) {
     return true;
   }
   return false;

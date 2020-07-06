@@ -27,8 +27,8 @@ const schema = mongoose.Schema({
   tweet: {
     type: String,
     required: true,
-    minlength: 1,
-    maxlength: 280
+    minlength: 1, // BYPASS // 280,
+    maxlength: 280 // BYPASS // 400
   },
   answer: {
     type: String,

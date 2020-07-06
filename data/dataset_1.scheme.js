@@ -11,7 +11,7 @@ module.exports = entry => {
       author: 'Donald J. Trump',
       handle: 'realDonaldTrump',
       date: entry.created_at? new Date(entry.created_at) : Date.now(),
-      is_retweet: entry.is_retweet,
+      is_retweet: entry.is_retweet || false,
       num_comments: 0, // NONE
       num_retweets: entry.retweet_count,
       num_favorites: entry.favorite_count

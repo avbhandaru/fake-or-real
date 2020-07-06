@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { RealTweet, FakeTweet, Tweet } = require('../server/models/Tweet');
 const { MONGO_URI } = require('./enums');
 const fs = require('fs');
@@ -21,11 +22,11 @@ function toTweet(entry) {
     metadata: {
       author: entry.author,
       handle: entry.handle,
-      date: entry.date,
-      is_retweet: entry.is_retweet,
-      num_comments: entr.num_comments,
-      num_retweets: entry.num_retweets,
-      num_favorites: entry.num_comments
+      date: new Date(parseInt(entry.date)),
+      is_retweet: entry.is_retweet === ''? false : JSON.parse(entry.is_retweet),
+      num_comments: parseInt(entry.num_comments || 0),
+      num_retweets: parseInt(entry.num_retweets || 0),
+      num_favorites: parseInt(entry.num_comments || 0)
     }
   }
 }
@@ -55,7 +56,7 @@ mongoose.connect(MONGO_URI(MONGODB_UN, MONGODB_PW), { useNewUrlParser: true })
             await fakeTweet.save(saveCallback);
           }
           tweet = new Tweet(tweet);
-          tweet.save(saveCallback);
+          await tweet.save(saveCallback);
         }
       })
   })
