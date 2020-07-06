@@ -35,7 +35,7 @@ async function queryTweets(n, k) {
     const queriedRealTweets = await RealTweet.aggregate([
       { $sample: { size : n } }
     ]);
-    const queriedFakeTweets = await RealTweet.aggregate([
+    const queriedFakeTweets = await FakeTweet.aggregate([
       { $sample: { size : k } }
     ]);
     const combinedQueriedTweets = queriedRealTweets.concat(queriedFakeTweets);
