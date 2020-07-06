@@ -49,27 +49,39 @@ async function queryTweets(n, k) {
 router.get('/:n/:k', async (req, res) => {
   // n + k is total number of tweets
   // choose number of real:fake tweets
-  const n = Math.min(realTweetCount, parseInt(req.params.n));
-  const k = Math.min(fakeTweetCount, parseInt(req.params.k));
-  const tweets = await queryTweets(n, k);
-  res.json(tweets);
+  try {
+    const n = Math.min(realTweetCount, parseInt(req.params.n));
+    const k = Math.min(fakeTweetCount, parseInt(req.params.k));
+    const tweets = await queryTweets(n, k);
+    res.status(200).json(tweets);
+  } catch (err) {
+    res.status(500).send(ERROR + ': ' + 'Something broke!');
+  }
 });
 
 router.get('/:n', async (req, res) => {
   // n is total number of tweets
   // choose number of real:fake tweets
-  const n = Math.min(realTweetCount, parseInt(req.params.n));
-  const k = Math.min(fakeTweetCount, getRandomInt(0, n + 1));
-  const tweets = await queryTweets(n - k, k);
-  res.json(tweets);
+  try {
+    const n = Math.min(realTweetCount, parseInt(req.params.n));
+    const k = Math.min(fakeTweetCount, getRandomInt(0, n + 1));
+    const tweets = await queryTweets(n - k, k);
+    res.status(200).json(tweets);
+  } catch (err) {
+    res.status(500).send(ERROR + ': ' + 'Something broke!');
+  }
 });
 
 router.get('/', async (req, res) => {
   // send NUM_TWEETS mixed tweets
-  const n = Math.min(realTweetCount, NUM_TWEETS);
-  const k = Math.min(fakeTweetCount, getRandomInt(0, n + 1));
-  const tweets = await queryTweets(n - k, k);
-  res.json(tweets);
+  try {
+    const n = Math.min(realTweetCount, NUM_TWEETS);
+    const k = Math.min(fakeTweetCount, getRandomInt(0, n + 1));
+    const tweets = await queryTweets(n - k, k);
+    res.status(200).json(tweets);
+  } catch (err) {
+    res.status(500).send(ERROR + ': ' + 'Something broke!');
+  }
 });
 
 module.exports = router;
