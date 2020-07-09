@@ -3,6 +3,12 @@ Check out our live site at:
 
 http://fake-or-real.s3-website-us-west-1.amazonaws.com/
 
+## About
+TODO
+
+## Technologies
+TODO
+
 ## API
 All API requests should point towards our fixed endpoint https://fake-or-real.herokuapp.com/api/tweets. Our server supports the following types of HTTP requests:
  - GET
