@@ -146,6 +146,9 @@ function showModal(isCorrect) {
 }
 
 function endGame(data) {
+	// send data for analytics
+	sendAnalytics(data);
+
 	// shows the end-game screen with the final score
 	$('#progress').hide();
 	$('#quiz').hide();
@@ -161,6 +164,34 @@ function endGame(data) {
 		solution.append(renderTweet(data[i-1]['tweet']))
 		$('#answers').append(solution);
 	}
+}
+
+function sendAnalytics(data) {
+	let request = [];
+	for (let i = 0; i < userResponses.length; i++) {
+		let datapoint = {
+			'_id': data[i]['_id'],
+			'answer': data[i]['answer'],
+			'response': userResponses[i] === data[i]['answer'],
+			'analytics': data[i]['analytics']
+		};
+		request.push(datapoint);
+	}
+
+	fetch('https://cors-anywhere.herokuapp.com/https://fake-or-real.herokuapp.com/api/tweets', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(request),
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log('Success:', data);
+	})
+	.catch((error) => {
+		console.error('Error:', error);
+	});
 }
 
 // used to color the strings "real" and "fake" on the endgame answers section green/red
