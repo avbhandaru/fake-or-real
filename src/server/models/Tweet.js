@@ -1,27 +1,5 @@
 const mongoose = require('mongoose');
 
-// Tweet Schema
-/*
-const tweet = new Tweet({
-	tweet: 'text...',
-	answer: 'fake',
-	metadata: {
-		author: 'Donald J. Trump',
-    handle: 'realDonaldTrump',
-    url: www....,
-		date: ...,
-		is_retweet: false,
-		num_comments: 0,
-		num_retweets: 0,
-		num_favorites: 0		
-	},
-	analytics: {
-		correct_guesses: 0,
-		incorrect_guesses: 0
-	}
-})
-*/
-
 // Consider sub-documents vs nested layer if we add a Tweets collection
 const schema = mongoose.Schema({
   tweet: {
@@ -57,8 +35,8 @@ const schema = mongoose.Schema({
     num_favorites: { type: Number, min: 0, default: 0 }
   },
   analytics: {
-    correct_guesses: { type: Number, min: 0, default: 0 },
-    incorrect_guesses: { type: Number, min: 0, default: 0 }
+    correct: { type: Number, min: 0, default: 0 },
+    total: { type: Number, min: 0, default: 0 }
   }
 });
 

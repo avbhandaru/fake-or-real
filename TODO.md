@@ -4,7 +4,8 @@
 <!-- 0. FIX s3 rendering issue -->
 <!-- 0. Filter tweets to remove retweets/urls (FINISH) need regex for each check -->
 <!-- 0. Test upload.js in utils/ -->
-0. CRON Task for Pulling tweets from Twitter API, upload to DB (ask for nice and helpful fields!) [NOT DONE]
+<!-- 0. CRON Task for Pulling tweets from Twitter API, upload to DB (ask for nice and helpful fields!) [NOT DONE] -->
+0. API support for analytics POST response from front end
 1. Generate Fake Tweets and upload to Database (temp: use existing generators)
 2. FIX CORS-anywhere error, so that website works always!!!
 <!-- 2. Update database real Trump tweets to only have tweets post election 2016 -->
@@ -17,6 +18,10 @@
 8. Message bank for correct/incorrect answers
 9. Fix package.json, so that babel and loaders are moved to devDependencies
 10. Look into hooking up CloudFront
+11. Add Exception classes for backend query issues
+12. Game addition: Once analytics are up and running, maybe show users frequency of correct/incorrect guesses per tweet? If they want, i.e. How you compare to others? Also use for better ML generator?
+13. Update db tweet.analytics to be { correct: ..., total: ... }
+14. set up own CORS server
 
 ## All TODO
  - Validate CRUD requests

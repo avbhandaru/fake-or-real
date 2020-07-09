@@ -1,14 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const enums = require('../utils/enums');
+const enums = require('../enums/enums');
 const homeRouter = require('./routes/home');
 const tweetsRouter = require('./routes/tweets');
 const port = process.env.PORT || 3000;
 
 mongoose.connect(
   enums.MONGO_URI(process.env.MONGODB_UN, process.env.MONGODB_PW),
-  {useNewUrlParser: true}
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false
+  }
 )
   .then(async () => {
     console.log('MongoDB database connected...');

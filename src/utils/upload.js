@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { RealTweet, FakeTweet, Tweet } = require('../server/models/Tweet');
-const { MONGO_URI } = require('./enums');
+const { MONGO_URI } = require('../enums/enums');
+const { check } = require('./utils');
 const fs = require('fs');
 const parse = require('csv-parser');
 const mongoose = require('mongoose');
@@ -43,12 +44,12 @@ const { MONGODB_UN, MONGODB_PW } = process.env;
 mongoose.connect(MONGO_URI(MONGODB_UN, MONGODB_PW), { useNewUrlParser: true })
   .then(async () => {
     console.log(`[upload.js] Mongo DB connected. Uploading CSV at ${dataPath}`);
-    await fs.createReadStream(dataPath)
+    fs.createReadStream(dataPath)
       .pipe(parse())
       .on('data', async entry => {
         let tweet = toTweet(entry);
         if (tweet.metadata.date >= DATE_CUTOFF) {
-          if (tweet.answer === 'real') {
+          if (check.isReal(tweet.answer)) {
             const realTweet = new RealTweet(tweet);
             await realTweet.save(saveCallback);
           } else {

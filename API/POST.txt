@@ -1,0 +1,27 @@
+POST REQUEST:
+[
+  {
+    _id: ObjectId("tweet._id"),
+    answer: Enum('real' | 'fake'),
+    response: Boolean,
+    analytics: {
+      correct: Number,
+      total: Number
+    }
+  },
+  {
+    _id: ObjectId("tweet._id"),
+    answer: Enum('real' | 'fake'),
+    response: Boolean,
+    analytics: {
+      correct: Number,
+      total: Number
+    }
+  },
+  ...
+]
+
+POST RESPONSE:
+{
+  result: 'SUCCESS'
+}

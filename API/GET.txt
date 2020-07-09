@@ -1,0 +1,54 @@
+GET REQUEST:
+params = {
+
+}
+
+params = {
+  n: Number
+}
+
+params = {
+  n: Number,
+  k: Number
+}
+
+GET RESPONSE:
+[
+  {
+    _id: String(mongoose.Types.ObjectId),
+    tweet: String({ min: 0, max: 280 }),
+    answer: Enum('real' | 'fake'),
+    metadata: {
+        author: String,
+        handle: String,
+        date: Date,
+        is_retweet: Boolean,
+        num_comments: Number,
+        num_retweets: Number,
+        num_favorites: Number
+    },
+    analytics: {
+        correct: Number,
+        total: Number
+    }
+  },
+  {
+    _id: String(mongoose.Types.ObjectId),
+    tweet: String({ min: 0, max: 280 }),
+    answer: Enum('real' | 'fake'),
+    metadata: {
+        author: String,
+        handle: String,
+        date: Date,
+        is_retweet: Boolean,
+        num_comments: Number,
+        num_retweets: Number,
+        num_favorites: Number
+    },
+    analytics: {
+        correct: Number,
+        total: Number
+    }
+  },
+  ...
+]

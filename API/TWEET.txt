@@ -1,0 +1,19 @@
+TWEET:
+{
+	tweet: String, // tweet content
+	answer: Enum('real' | 'fake'),
+	metadata: {
+		author: String,
+    handle: String,
+    url: String,
+		date: Date,
+		is_retweet: Boolean,
+		num_comments: Number,
+		num_retweets: Number,
+		num_favorites: Number		
+	},
+	analytics: {
+		correct: Number,
+		total: Number
+	}
+}
