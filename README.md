@@ -29,8 +29,8 @@ The tweet object follows the format below:
 	answer: Enum('real' | 'fake'),
 	metadata: {
 		author: String,
-    handle: String,
-    url: String,
+		handle: String,
+		url: String,
 		date: Date,
 		is_retweet: Boolean,
 		num_comments: Number,
