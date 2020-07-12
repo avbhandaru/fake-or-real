@@ -16,7 +16,7 @@ def load_data(val_split, batch_size, maxlen, step):
 
     random.seed(69)
     random.shuffle(tweets)
-    text =  ''.join(tweets)
+    text =  '\n'.join(tweets)
 
     training_text = text[:int(len(text) * (1-val_split))]
     val_text      = text[int(len(text) * (1-val_split)):]
