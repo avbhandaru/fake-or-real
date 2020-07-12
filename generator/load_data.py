@@ -9,7 +9,8 @@ import utils
 def load_data(val_split, batch_size, maxlen, step):
     # Returns two tuples of (batch generator, number of samples)
     # The first one is training, the second one is validation
-    file_path = '../data/dataset_2_short.raw.csv'
+    file_path = '../data/dataset_2.filtered.raw.csv'
+    # file_path = '../data/dataset_2_short.raw.csv'
     text = open(file_path).read()
     tweets = text.split('\n')
 

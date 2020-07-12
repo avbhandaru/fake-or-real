@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 # Set of all characters in training data.
 
@@ -25,8 +26,9 @@ def generate(model, seed_text='\n', diversity=0.5, batch_size=None, length=1000)
     def sample(a):
         # sample an index from a probability array
         a = np.log(a) / diversity
-        a = np.exp(a) / np.sum(np.exp(a))
-        return np.argmax(np.random.multinomial(1, a, 1))
+        a = np.exp(a) #/ np.sum(np.exp(a))
+        return random.choices(chars, weights=a)[0]
+        # return np.argmax(np.random.multinomial(1, a, 1))
 
     model.reset_states()
     generated = seed_text
@@ -34,9 +36,8 @@ def generate(model, seed_text='\n', diversity=0.5, batch_size=None, length=1000)
 
     for i in range(length):
         x = vectorify(next_char, batch_size)
-        preds = model.predict(x, verbose=0, batch_size=100)[0]
-        next_index = sample(preds)
-        next_char = indices_char[next_index]
+        preds = model.predict(x, verbose=0, batch_size=batch_size)[0]
+        next_char = sample(preds)
         generated += next_char
 
     return generated

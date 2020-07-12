@@ -11,13 +11,18 @@ import random
 import utils
 import load_data
 
+# https://stackoverflow.com/questions/43147983/could-not-create-cudnn-handle-cudnn-status-internal-error
+import tensorflow as tf
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+config = tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 val_split = 0.05 # proportion of data used for validation
-nb_epoch   = 100  # num of epochs to train for
+nb_epoch   = 10  # num of epochs to train for
 batch_size = 100 # X.shape[0]
 maxlen     = 100 # X.shape[1] (Number of steps to back propogate through time)
 n_features_in = utils.n_features
 n_features_out = utils.n_chars
-step       = 1
+step       = 10
 
 training, val = load_data.load_data(val_split, batch_size, maxlen, step)
 training_batches,training_samples = training
@@ -45,12 +50,12 @@ class callback(Callback):
 
         # write some sample generated text
 
+        seed_text = '\n'
         diversities = [0.2, 0.5, 0.7, 1.0]
         generateds = [utils.generate(model, seed_text, diversity, batch_size) 
                 for diversity in diversities]
 
         print(generateds[1])
-        print('\n' % epoch)
 
         filename = 'checkpoints/epoch_%d_gen.txt' % epoch
         with open(filename, 'w') as f:
