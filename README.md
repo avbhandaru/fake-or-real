@@ -24,13 +24,13 @@ Three routes are supported by our server. Note that the response body will be a 
 The tweet object follows the format below:
 ```js
 {
-  _id: String, // These will be mongoose.Types.ObjectId's
+  	_id: String, // These will be mongoose.Types.ObjectId's
 	tweet: String, // tweet content
 	answer: Enum('real' | 'fake'),
 	metadata: {
 		author: String,
-    handle: String,
-    url: String,
+		handle: String,
+		url: String,
 		date: Date,
 		is_retweet: Boolean,
 		num_comments: Number,
