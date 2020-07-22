@@ -5,9 +5,15 @@ import re
 import pandas
 from textgenrnn import textgenrnn
 
+import tensorflow as tf
+
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+config = tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
+
 num_epochs = 5
 gen_epochs = 1
-batch_size = 128
+batch_size = 256
 train_size = 1.0
 new_model = True
 
@@ -16,7 +22,7 @@ rnn_size = 128
 rnn_bidirectional = False
 max_length = 40
 dim_embeddings = 100
-word_level = False
+word_level = True
 
 def process_tweet_text(text):
     text = re.sub(r'http\S+', '', text)   # Remove URLs
